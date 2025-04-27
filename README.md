@@ -98,3 +98,13 @@
     Base64 is a binary-to-text encoding.
 
     Recognized by padding characters = at the end.
+
+## Level 11-12
+- **Password:** 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+- **What is Expected:** The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+- **What I did:** 
+  ```bash
+    Cat data.txt | tr ‘A-Za-z’ ‘N-ZA-Mn-za-m’
+Tr ‘A-Za-z’ ‘N-ZA-Mn-za-m’ command performs character transformation. 
+A-Za-z specifies the range citing both upper and lower case.
+N-ZA-Mn-za-m This is the mapping for the ROT13 transformation. It shifts each letter by 13 positions.
