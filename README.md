@@ -108,3 +108,11 @@
 Tr ‘A-Za-z’ ‘N-ZA-Mn-za-m’ command performs character transformation. 
 A-Za-z specifies the range citing both upper and lower case.
 N-ZA-Mn-za-m This is the mapping for the ROT13 transformation. It shifts each letter by 13 positions.
+
+## Level 12-13
+- **Password:** FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+- **What is Expected:** The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level, it may be useful to create a directory under /tmp in which you can work using mkdir.
+- **What I did:** 
+  ```bash
+  I had to decompress many times from data file. The use of file command to Identify the type of data stored in the file. 
+  The compressed commands include tar xf, gunzip and bunzip2. 
