@@ -137,6 +137,7 @@ N-ZA-Mn-za-m This is the mapping for the ROT13 transformation. It shifts each le
 - **What is Expected:** The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL/TLS encryption
 - **What I did:** 
   ```bash
+  openssl s_client -connect localhost:30001
 Since the task highlighted that the passwd can be retrieved using the SSL encryption, I connected to the localhost server with OpenSSL client ad sent passwd from this level:
 openssl s_client -connect localhost:30001
-using password
+using password in level 14 to retrieve the password for the next level
