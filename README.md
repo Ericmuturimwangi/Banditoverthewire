@@ -116,3 +116,27 @@ N-ZA-Mn-za-m This is the mapping for the ROT13 transformation. It shifts each le
   ```bash
   I had to decompress many times from data file. The use of file command to Identify the type of data stored in the file. 
   The compressed commands include tar xf, gunzip and bunzip2. 
+
+## Level 13-14
+- **Password:** 
+- **What is Expected:** The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Note: localhost is a hostname that refers to the machine you are working on
+- **What I did:** 
+  ```bash
+  I started with ls, Listed the sshkey.private file that helps in connecting to bandit14. chmod 700 sshkey.private to make the file an executable, got a permission denied and resulted in using the ssh key as follows : ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+
+## Level 14-15
+- **Password:** 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+- **What is Expected:** The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
+- **What I did:** 
+  ```bash
+  I cat /etc/bandit_pass/bandit14 to view the password to use in logging to the localhost 30000
+  then I connected to localhost 30000 using nc localhost 30000 
+
+## Level 15-16
+- **Password:** kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+- **What is Expected:** The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL/TLS encryption
+- **What I did:** 
+  ```bash
+Since the task highlighted that the passwd can be retrieved using the SSL encryption, I connected to the localhost server with OpenSSL client ad sent passwd from this level:
+openssl s_client -connect localhost:30001
+using password
